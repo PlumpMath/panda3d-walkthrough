@@ -1,0 +1,120 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>panda writeup</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+    <link rel="stylesheet" href="bower_components/google-code-prettify/src/prettify.css" />
+  </head>
+  <body onload="prettyPrint()">
+    <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <div class="container">
+      <div class="header">        
+        <h1 id="title">Panda3D Walkthrough <small>by Jim Shargo</small></h1>
+      </div>
+
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	    Basics <b class="caret"></b>
+	  </a>
+          <ul class="dropdown-menu">
+	    <li><a href="#game_loop" data-toggle="tab">Game Loop</a></li>
+	    <li><a href="#events" data-toggle="tab">Events</a></li>
+	    <li><a href="#resources" data-toggle="tab">Resources</a></li>
+	    <li><a href="#math" data-toggle="tab">Math</a></li>
+          </ul>
+	</li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	    Graphics <b class="caret"></b>
+	  </a>
+          <ul class="dropdown-menu">
+	    <li><a href="#3d_rendering" data-toggle="tab">3D Rendering</a></li>
+	    <li><a href="#physics" data-toggle="tab">Physics</a></li>
+	    <li><a href="#animation" data-toggle="tab">Animation</a></li>
+	  </ul>
+	</li>
+
+	<li><a href="#input" data-toggle="tab">Input</a></li>
+	<li><a href="#audio" data-toggle="tab">Audio</a></li>
+	<li><a href="#networking" data-toggle="tab">Networking</a></li>
+	<li><a href="#scripting" data-toggle="tab">Scripting</a></li>
+      </ul>
+
+      <div class="tab-content">
+	<div class="tab-pane active" id="home" pane-src="pages/home.html"></div>
+	<div class="tab-pane" id="game_loop" pane-src="pages/game_loop.html"></div>
+	<div class="tab-pane" id="input" pane-src="pages/input.html"></div>
+	<div class="tab-pane" id="resources" pane-src="pages/resources.html"></div>
+	<div class="tab-pane" id="3d_rendering" pane-src="pages/3d_rendering.html"></div>
+	<div class="tab-pane" id="animation" pane-src="pages/animation.html"></div>
+	<div class="tab-pane" id="physics" pane-src="pages/physics.html"></div>
+	<div class="tab-pane" id="events" pane-src="pages/events.html"></div>
+	<div class="tab-pane" id="audio" pane-src="pages/audio.html"></div>
+	<div class="tab-pane" id="networking" pane-src="pages/networking.html"></div>
+	<div class="tab-pane" id="scripting" pane-src="pages/scripting.html"></div>
+	<div class="tab-pane" id="math" pane-src="pages/math.html"></div>
+      </div>
+    </div>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/plugins.js -->
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="bower_components/google-code-prettify/src/prettify.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
